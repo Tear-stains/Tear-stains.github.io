@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="java,分布式事务,">
+  <meta name="keywords" content="java,SpringBoot,">
 
 
 
@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="分布式事务分布式事务的解释：1分布式事务就是指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式系统的不同节点之上。以上是百度百科的解释，简单的说，就是一次大的操作由不同的小操作组成，这些小的操作分布在不同的服务器上，且属于不同的应用，分布式事务需要保证这些小操作要么全部成功，要么全部失败。本质上来说，分布式事务就是为了保证不同数据库的数据一致性  问题产生原因1.数据库">
-<meta name="keywords" content="java,分布式事务">
+<meta name="description" content="管他那么多，上天安排的最大嘛">
+<meta name="keywords" content="java,SpringBoot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="分布式事务详解">
-<meta property="og:url" content="http://yoursite.com/2019/07/25/分布式事务详解/index.html">
+<meta property="og:title" content="SpringBoot入门">
+<meta property="og:url" content="http://yoursite.com/2019/07/26/SpringBoot入门/index.html">
 <meta property="og:site_name" content="Tear-stains">
-<meta property="og:description" content="分布式事务分布式事务的解释：1分布式事务就是指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式系统的不同节点之上。以上是百度百科的解释，简单的说，就是一次大的操作由不同的小操作组成，这些小的操作分布在不同的服务器上，且属于不同的应用，分布式事务需要保证这些小操作要么全部成功，要么全部失败。本质上来说，分布式事务就是为了保证不同数据库的数据一致性  问题产生原因1.数据库">
+<meta property="og:description" content="管他那么多，上天安排的最大嘛">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-25T13:47:30.539Z">
+<meta property="og:updated_time" content="2019-07-26T14:54:32.586Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分布式事务详解">
-<meta name="twitter:description" content="分布式事务分布式事务的解释：1分布式事务就是指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式系统的不同节点之上。以上是百度百科的解释，简单的说，就是一次大的操作由不同的小操作组成，这些小的操作分布在不同的服务器上，且属于不同的应用，分布式事务需要保证这些小操作要么全部成功，要么全部失败。本质上来说，分布式事务就是为了保证不同数据库的数据一致性  问题产生原因1.数据库">
+<meta name="twitter:title" content="SpringBoot入门">
+<meta name="twitter:description" content="管他那么多，上天安排的最大嘛">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/25/分布式事务详解/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/26/SpringBoot入门/">
 
 
 
 
 
-  <title>分布式事务详解 | Tear-stains</title>
+  <title>SpringBoot入门 | Tear-stains</title>
   
 
 
@@ -299,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/25/分布式事务详解/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/26/SpringBoot入门/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GY">
@@ -316,7 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">分布式事务详解</h1>
+          <h1 class="post-title" itemprop="name headline">SpringBoot入门</h1>
         
 
         <div class="post-meta">
@@ -328,8 +328,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-25T21:46:45+08:00">
-                2019-07-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-26T22:51:37+08:00">
+                2019-07-26
               </time>
             
 
@@ -388,57 +388,7 @@
       
 
       
-        <h1 id="分布式事务"><a href="#分布式事务" class="headerlink" title="分布式事务"></a>分布式事务</h1><h2 id="分布式事务的解释："><a href="#分布式事务的解释：" class="headerlink" title="分布式事务的解释："></a>分布式事务的解释：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">分布式事务就是指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式系统的不同节点之上。以上是百度百科的解释，简单的说，就是一次大的操作由不同的小操作组成，这些小的操作分布在不同的服务器上，且属于不同的应用，分布式事务需要保证这些小操作要么全部成功，要么全部失败。本质上来说，分布式事务就是为了保证不同数据库的数据一致性</span><br></pre></td></tr></table></figure>
-
-<h2 id="问题产生原因"><a href="#问题产生原因" class="headerlink" title="问题产生原因"></a>问题产生原因</h2><h3 id="1-数据库分表"><a href="#1-数据库分表" class="headerlink" title="1.数据库分表"></a>1.数据库分表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当数据库单表一年产生的数据超过1000W，那么就要考虑分库分表，简单的说就是原来的一个数据库变成了多个数据库。这时候，如果一个操作既访问01库，又访问02库，而且要保证数据的一致性，那么就要用到分布式事务。</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-业务的SOA化"><a href="#2-业务的SOA化" class="headerlink" title="2.业务的SOA化"></a>2.业务的SOA化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">所谓的SOA化，就是业务的服务化。比如原来单机支撑了整个电商网站，现在对整个网站进行拆解，分离出了订单中心、用户中心、库存中心。对于订单中心，有专门的数据库存储订单信息，用户中心也有专门的数据库存储用户信息，库存中心也会有专门的数据库存储库存信息。这时候如果要同时对订单和库存进行操作，那么就会涉及到订单数据库和库存数据库，为了保证数据一致性，就需要用到分布式事务。</span><br></pre></td></tr></table></figure>
-
-<h2 id="事务的ACID性"><a href="#事务的ACID性" class="headerlink" title="事务的ACID性"></a>事务的ACID性</h2><h3 id="1-原子性"><a href="#1-原子性" class="headerlink" title="1.原子性"></a>1.原子性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在整个事务中的所有操作，要么全部成功，要么全部失败，没有中间状态。</span><br><span class="line">如果事务在执行的过程中发生错误，那么整个事务的所有操作都要回滚，整个事务就像没被执行过一样。</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-一致性"><a href="#2-一致性" class="headerlink" title="2.一致性"></a>2.一致性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">事务的执行必须保证系统的一致性，就拿转账为例，A有500元，B有300元，如果在一个事务里A成功转给B50元，那么不管并发多少，不管发生什么，只要事务执行成功了，那么最后A账户一定是450元，B账户一定是350元。</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-隔离性"><a href="#3-隔离性" class="headerlink" title="3.隔离性"></a>3.隔离性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">所谓的隔离性就是说，事务与事务之间不会互相影响，一个事务的中间状态不会被其他事务感知。</span><br></pre></td></tr></table></figure>
-
-<h4 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h4><h5 id="1-Read-uncommitted-：读未提交"><a href="#1-Read-uncommitted-：读未提交" class="headerlink" title="1.Read uncommitted ：读未提交"></a>1.<strong>Read uncommitted</strong> ：读未提交</h5><h6 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个事务可以读取另一个未提交事务的数据。</span><br></pre></td></tr></table></figure>
-
-<h6 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">产生脏读</span><br></pre></td></tr></table></figure>
-
-<h6 id="事例"><a href="#事例" class="headerlink" title="事例"></a>事例</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">老板要给程序员发工资，程序员的工资是3.6万/月。但是发工资时老板不小心按错了数字，按成3.9万/月，该钱已经打到程序员的户口，但是事务还没有提交，就在这时，程序员去查看自己这个月的工资，发现比往常多了3千元，以为涨工资了非常高兴。但是老板及时发现了不对，马上回滚差点就提交了的事务，将数字改成3.6万再提交。</span><br></pre></td></tr></table></figure>
-
-<h6 id="事例分析"><a href="#事例分析" class="headerlink" title="事例分析"></a>事例分析</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">实际程序员这个月的工资还是3.6万，但是程序员看到的是3.9万。他看到的是老板还没提交事务时的数据。这就是脏读。</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-Read-committed-读提交"><a href="#2-Read-committed-读提交" class="headerlink" title="2.Read committed :读提交"></a>2.<strong>Read committed</strong> :读提交</h5><h6 id="解释-1"><a href="#解释-1" class="headerlink" title="解释"></a>解释</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个事务要等另一个事务提交后才能读取数据。</span><br></pre></td></tr></table></figure>
-
-<h6 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个事务范围内两个相同的查询却返回了不同数据，这就是不可重复读。</span><br></pre></td></tr></table></figure>
-
-<h6 id="事例-1"><a href="#事例-1" class="headerlink" title="事例"></a>事例</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">程序员拿着信用卡去享受生活（卡里当然是只有3.6万），当他埋单时（程序员事务开启），收费系统事先检测到他的卡里有3.6万，就在这个时候！！程序员的妻子要把钱全部转出充当家用，并提交。当收费系统准备扣款时，再检测卡里的金额，发现已经没钱了（第二次检测金额当然要等待妻子转出金额事务提交完）。程序员就会很郁闷，明明卡里是有钱的…</span><br></pre></td></tr></table></figure>
-
-<h6 id="事例分析-1"><a href="#事例分析-1" class="headerlink" title="事例分析"></a>事例分析</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这就是读提交，若有事务对数据进行更新（UPDATE）操作时，读操作事务要等待这个更新操作事务提交后才能读取数据，可以解决脏读问题。但在这个事例中，出现了一个事务范围内两个相同的查询却返回了不同数据，这就是不可重复读。</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-Repeatable-read-重复读"><a href="#3-Repeatable-read-重复读" class="headerlink" title="3.Repeatable read  :重复读"></a>3.<strong>Repeatable read</strong>  :重复读</h5><h6 id="解释-2"><a href="#解释-2" class="headerlink" title="解释"></a>解释</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">重复读，就是在开始读取数据（事务开启）时，不再允许修改操作</span><br></pre></td></tr></table></figure>
-
-<h6 id="问题-2"><a href="#问题-2" class="headerlink" title="问题"></a>问题</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">可能还会有幻读问题</span><br></pre></td></tr></table></figure>
-
-<h6 id="事例-2"><a href="#事例-2" class="headerlink" title="事例"></a>事例</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">程序员拿着信用卡去享受生活（卡里当然是只有3.6万），当他埋单时（事务开启，不允许其他事务的UPDATE修改操作），收费系统事先检测到他的卡里有3.6万。这个时候他的妻子不能转出金额了。接下来收费系统就可以扣款了。</span><br></pre></td></tr></table></figure>
-
-<h6 id="事例分析-2"><a href="#事例分析-2" class="headerlink" title="事例分析"></a>事例分析</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">重复读可以解决不可重复读问题。写到这里，应该明白的一点就是，不可重复读对应的是修改，即UPDATE操作。但是可能还会有幻读问题。因为幻读问题对应的是插入INSERT操作，而不是UPDATE操作。</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-Serializable-序列化"><a href="#4-Serializable-序列化" class="headerlink" title="4.Serializable   :序列化"></a>4.<strong>Serializable</strong>   :序列化</h5><h6 id="解释-3"><a href="#解释-3" class="headerlink" title="解释"></a>解释</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Serializable 是最高的事务隔离级别，在该级别下，事务串行化顺序执行，可以避免脏读、不可重复读与幻读。</span><br><span class="line">但是这种事务隔离级别效率低下，比较耗数据库性能，一般不使用。</span><br></pre></td></tr></table></figure>
-
-<h6 id="问题-3"><a href="#问题-3" class="headerlink" title="问题"></a>问题</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">效率低下</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-持久性"><a href="#4-持久性" class="headerlink" title="4.持久性"></a>4.持久性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">所谓的持久性，就是说一单事务完成了，那么事务对数据所做的变更就完全保存在了数据库中，即使发生停电，系统宕机也是如此。</span><br></pre></td></tr></table></figure>
-
-<h2 id="分布式事务的应用场景"><a href="#分布式事务的应用场景" class="headerlink" title="分布式事务的应用场景"></a>分布式事务的应用场景</h2><h3 id="支付"><a href="#支付" class="headerlink" title="支付"></a>支付</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">最经典的场景就是支付了，一笔支付，是对买家账户进行扣款，同时对卖家账户进行加钱，这些操作必须在一个事务里执行，要么全部成功，要么全部失败。而对于买家账户属于买家中心，对应的是买家数据库，而卖家账户属于卖家中心，对应的是卖家数据库，对不同数据库的操作必然需要引入分布式事务。</span><br></pre></td></tr></table></figure>
-
-<h3 id="在线下单"><a href="#在线下单" class="headerlink" title="在线下单"></a>在线下单</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">买家在电商平台下单，往往会涉及到两个动作，一个是扣库存，第二个是更新订单状态，库存和订单一般属于不同的数据库，需要使用分布式事务保证数据一致性。</span><br></pre></td></tr></table></figure>
-
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="消息事务-最终一致性"><a href="#消息事务-最终一致性" class="headerlink" title="消息事务+最终一致性"></a>消息事务+最终一致性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">基于消息中间件的两阶段提交,需要业务系统结合 MQ 消息中间件实现，在实现过程中需要保 证消息的成功发送及成功消费。即需要通过业务系统控制MQ 的消息状态</span><br></pre></td></tr></table></figure>
-
-<h3 id="TCC编程模式"><a href="#TCC编程模式" class="headerlink" title="TCC编程模式"></a>TCC编程模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">所谓的TCC编程模式，也是两阶段提交的一个变种。TCC提供了一个编程框架，将整个业务逻辑分为三块：Try、Confirm和Cancel三个操作。以在线下单为例，Try阶段会去扣库存，Confirm阶段则是去更新订单状态，如果更新订单失败，则进入Cancel阶段，会去恢复库存。总之，TCC就是通过代码人为实现了两阶段提交，不同的业务场景所写的代码都不一样，复杂度也不一样，因此，这种模式并不能很好地被复用。</span><br></pre></td></tr></table></figure>
-
-
+        
       
     </div>
     
@@ -486,7 +436,7 @@
           
             <a href="/tags/java/" rel="tag"># java</a>
           
-            <a href="/tags/分布式事务/" rel="tag"># 分布式事务</a>
+            <a href="/tags/SpringBoot/" rel="tag"># SpringBoot</a>
           
         </div>
       
@@ -499,8 +449,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/25/POI用法详解/" rel="next" title="POI用法详解">
-                <i class="fa fa-chevron-left"></i> POI用法详解
+              <a href="/2019/07/25/activeMQ详解/" rel="next" title="activeMQ详解">
+                <i class="fa fa-chevron-left"></i> activeMQ详解
               </a>
             
           </div>
@@ -509,8 +459,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/25/activeMQ详解/" rel="prev" title="activeMQ详解">
-                activeMQ详解 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/27/maven/" rel="prev" title="maven">
+                maven <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -563,17 +513,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -652,22 +593,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分布式事务"><span class="nav-number">1.</span> <span class="nav-text">分布式事务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式事务的解释："><span class="nav-number">1.1.</span> <span class="nav-text">分布式事务的解释：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题产生原因"><span class="nav-number">1.2.</span> <span class="nav-text">问题产生原因</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-数据库分表"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.数据库分表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-业务的SOA化"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.业务的SOA化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务的ACID性"><span class="nav-number">1.3.</span> <span class="nav-text">事务的ACID性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-原子性"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.原子性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-一致性"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.一致性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-隔离性"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.隔离性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事务的隔离级别"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">事务的隔离级别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Read-uncommitted-：读未提交"><span class="nav-number">1.3.3.1.1.</span> <span class="nav-text">1.Read uncommitted ：读未提交</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#解释"><span class="nav-number">1.3.3.1.1.1.</span> <span class="nav-text">解释</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问题"><span class="nav-number">1.3.3.1.1.2.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#事例"><span class="nav-number">1.3.3.1.1.3.</span> <span class="nav-text">事例</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#事例分析"><span class="nav-number">1.3.3.1.1.4.</span> <span class="nav-text">事例分析</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Read-committed-读提交"><span class="nav-number">1.3.3.1.2.</span> <span class="nav-text">2.Read committed :读提交</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#解释-1"><span class="nav-number">1.3.3.1.2.1.</span> <span class="nav-text">解释</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问题-1"><span class="nav-number">1.3.3.1.2.2.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#事例-1"><span class="nav-number">1.3.3.1.2.3.</span> <span class="nav-text">事例</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#事例分析-1"><span class="nav-number">1.3.3.1.2.4.</span> <span class="nav-text">事例分析</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Repeatable-read-重复读"><span class="nav-number">1.3.3.1.3.</span> <span class="nav-text">3.Repeatable read  :重复读</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#解释-2"><span class="nav-number">1.3.3.1.3.1.</span> <span class="nav-text">解释</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问题-2"><span class="nav-number">1.3.3.1.3.2.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#事例-2"><span class="nav-number">1.3.3.1.3.3.</span> <span class="nav-text">事例</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#事例分析-2"><span class="nav-number">1.3.3.1.3.4.</span> <span class="nav-text">事例分析</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Serializable-序列化"><span class="nav-number">1.3.3.1.4.</span> <span class="nav-text">4.Serializable   :序列化</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#解释-3"><span class="nav-number">1.3.3.1.4.1.</span> <span class="nav-text">解释</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问题-3"><span class="nav-number">1.3.3.1.4.2.</span> <span class="nav-text">问题</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-持久性"><span class="nav-number">1.3.4.</span> <span class="nav-text">4.持久性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式事务的应用场景"><span class="nav-number">1.4.</span> <span class="nav-text">分布式事务的应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#支付"><span class="nav-number">1.4.1.</span> <span class="nav-text">支付</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在线下单"><span class="nav-number">1.4.2.</span> <span class="nav-text">在线下单</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-number">1.5.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#消息事务-最终一致性"><span class="nav-number">1.5.1.</span> <span class="nav-text">消息事务+最终一致性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCC编程模式"><span class="nav-number">1.5.2.</span> <span class="nav-text">TCC编程模式</span></a></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
