@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="java,分布式事务,">
+  <meta name="keywords" content="nginx,lvs,">
 
 
 
@@ -83,18 +83,32 @@
 
 
 
-<meta name="description" content="分布式事务分布式事务的解释：1分布式事务就是指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式系统的不同节点之上。以上是百度百科的解释，简单的说，就是一次大的操作由不同的小操作组成，这些小的操作分布在不同的服务器上，且属于不同的应用，分布式事务需要保证这些小操作要么全部成功，要么全部失败。本质上来说，分布式事务就是为了保证不同数据库的数据一致性  问题产生原因1.数据库">
-<meta name="keywords" content="java,分布式事务">
+<meta name="description" content="LVS+Nginx搭建高可用集群搭建LVS-DR模式- 配置LVS节点与ipvsadm前期准备 服务器与ip规划：  LVS - 1台 VIP（虚拟IP）：192.168.1.150 DIP（转发者IP/内网IP）：192.168.1.151   Nginx - 2台（RealServer） RIP（真实IP/内网IP）：192.168.1.171 RIP（真实IP/内网IP）：192.168.1">
+<meta name="keywords" content="nginx,lvs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="分布式事务详解">
-<meta property="og:url" content="http://yoursite.com/2019/07/25/分布式事务详解/index.html">
+<meta property="og:title" content="LVS+Nginx搭建高可用集群">
+<meta property="og:url" content="http://yoursite.com/2020/09/23/LVS-Nginx搭建高可用集群/index.html">
 <meta property="og:site_name" content="Tear-stains">
-<meta property="og:description" content="分布式事务分布式事务的解释：1分布式事务就是指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式系统的不同节点之上。以上是百度百科的解释，简单的说，就是一次大的操作由不同的小操作组成，这些小的操作分布在不同的服务器上，且属于不同的应用，分布式事务需要保证这些小操作要么全部成功，要么全部失败。本质上来说，分布式事务就是为了保证不同数据库的数据一致性  问题产生原因1.数据库">
+<meta property="og:description" content="LVS+Nginx搭建高可用集群搭建LVS-DR模式- 配置LVS节点与ipvsadm前期准备 服务器与ip规划：  LVS - 1台 VIP（虚拟IP）：192.168.1.150 DIP（转发者IP/内网IP）：192.168.1.151   Nginx - 2台（RealServer） RIP（真实IP/内网IP）：192.168.1.171 RIP（真实IP/内网IP）：192.168.1">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-25T13:47:30.539Z">
+<meta property="og:image" content="https://climg.mukewang.com/5dc2875b08ce651416000419.jpg">
+<meta property="og:image" content="https://climg.mukewang.com/5dc287db0882451906340344.jpg">
+<meta property="og:image" content="https://climg.mukewang.com/5dc287fc08c55cbc15100108.jpg">
+<meta property="og:image" content="https://climg.mukewang.com/5dc2887b086239f113560442.jpg">
+<meta property="og:image" content="https://climg.mukewang.com/5dc2888d08852c0412950520.jpg">
+<meta property="og:image" content="https://climg.mukewang.com/5dc288a0088cf91d11070450.jpg">
+<meta property="og:image" content="https://climg.mukewang.com/5dc288c1086c8e5015100198.jpg">
+<meta property="og:image" content="https://climg.mukewang.com/5dc28b540801d7ec16000905.jpg">
+<meta property="og:image" content="https://climg.mukewang.com/5dc28b660814300912740488.jpg">
+<meta property="og:image" content="https://climg.mukewang.com/5dc28b8708f7cadb09200424.jpg">
+<meta property="og:image" content="https://climg.mukewang.com/5dc28bf408d55df509500336.jpg">
+<meta property="og:image" content="https://climg.mukewang.com/5dc28c0a08af26b516000379.jpg">
+<meta property="og:image" content="https://climg.mukewang.com/5dc28c2208e548eb13020736.jpg">
+<meta property="og:updated_time" content="2020-09-23T01:26:46.879Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分布式事务详解">
-<meta name="twitter:description" content="分布式事务分布式事务的解释：1分布式事务就是指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式系统的不同节点之上。以上是百度百科的解释，简单的说，就是一次大的操作由不同的小操作组成，这些小的操作分布在不同的服务器上，且属于不同的应用，分布式事务需要保证这些小操作要么全部成功，要么全部失败。本质上来说，分布式事务就是为了保证不同数据库的数据一致性  问题产生原因1.数据库">
+<meta name="twitter:title" content="LVS+Nginx搭建高可用集群">
+<meta name="twitter:description" content="LVS+Nginx搭建高可用集群搭建LVS-DR模式- 配置LVS节点与ipvsadm前期准备 服务器与ip规划：  LVS - 1台 VIP（虚拟IP）：192.168.1.150 DIP（转发者IP/内网IP）：192.168.1.151   Nginx - 2台（RealServer） RIP（真实IP/内网IP）：192.168.1.171 RIP（真实IP/内网IP）：192.168.1">
+<meta name="twitter:image" content="https://climg.mukewang.com/5dc2875b08ce651416000419.jpg">
 
 
 
@@ -124,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/25/分布式事务详解/">
+  <link rel="canonical" href="http://yoursite.com/2020/09/23/LVS-Nginx搭建高可用集群/">
 
 
 
 
 
-  <title>分布式事务详解 | Tear-stains</title>
+  <title>LVS+Nginx搭建高可用集群 | Tear-stains</title>
   
 
 
@@ -299,7 +313,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/25/分布式事务详解/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/23/LVS-Nginx搭建高可用集群/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GY">
@@ -316,7 +330,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">分布式事务详解</h1>
+          <h1 class="post-title" itemprop="name headline">LVS+Nginx搭建高可用集群</h1>
         
 
         <div class="post-meta">
@@ -328,8 +342,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-25T21:46:45+08:00">
-                2019-07-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-23T09:22:33+08:00">
+                2020-09-23
               </time>
             
 
@@ -351,8 +365,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
+                  <a href="/categories/nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx</span>
                   </a>
                 </span>
 
@@ -388,56 +402,167 @@
       
 
       
-        <h1 id="分布式事务"><a href="#分布式事务" class="headerlink" title="分布式事务"></a>分布式事务</h1><h2 id="分布式事务的解释："><a href="#分布式事务的解释：" class="headerlink" title="分布式事务的解释："></a>分布式事务的解释：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">分布式事务就是指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式系统的不同节点之上。以上是百度百科的解释，简单的说，就是一次大的操作由不同的小操作组成，这些小的操作分布在不同的服务器上，且属于不同的应用，分布式事务需要保证这些小操作要么全部成功，要么全部失败。本质上来说，分布式事务就是为了保证不同数据库的数据一致性</span><br></pre></td></tr></table></figure>
+        <h1 id="LVS-Nginx搭建高可用集群"><a href="#LVS-Nginx搭建高可用集群" class="headerlink" title="LVS+Nginx搭建高可用集群"></a>LVS+Nginx搭建高可用集群</h1><h2 id="搭建LVS-DR模式-配置LVS节点与ipvsadm"><a href="#搭建LVS-DR模式-配置LVS节点与ipvsadm" class="headerlink" title="搭建LVS-DR模式- 配置LVS节点与ipvsadm"></a>搭建LVS-DR模式- 配置LVS节点与ipvsadm</h2><h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><ol>
+<li><p>服务器与ip规划：</p>
+<ul>
+<li>LVS - 1台<ul>
+<li>VIP（虚拟IP）：192.168.1.150</li>
+<li>DIP（转发者IP/内网IP）：192.168.1.151</li>
+</ul>
+</li>
+<li>Nginx - 2台（RealServer）<ul>
+<li>RIP（真实IP/内网IP）：192.168.1.171</li>
+<li>RIP（真实IP/内网IP）：192.168.1.172</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>所有计算机节点关闭网络配置管理器，因为有可能会和网络接口冲突：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop NetworkManager </span><br><span class="line">systemctl disable NetworkManager</span><br></pre></td></tr></table></figure>
 
-<h2 id="问题产生原因"><a href="#问题产生原因" class="headerlink" title="问题产生原因"></a>问题产生原因</h2><h3 id="1-数据库分表"><a href="#1-数据库分表" class="headerlink" title="1.数据库分表"></a>1.数据库分表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当数据库单表一年产生的数据超过1000W，那么就要考虑分库分表，简单的说就是原来的一个数据库变成了多个数据库。这时候，如果一个操作既访问01库，又访问02库，而且要保证数据的一致性，那么就要用到分布式事务。</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="创建子接口"><a href="#创建子接口" class="headerlink" title="创建子接口"></a>创建子接口</h3><ol>
+<li>进入到网卡配置目录，找到咱们的ens33：<br><img src="https://climg.mukewang.com/5dc2875b08ce651416000419.jpg" alt="图片描述"></li>
+<li>拷贝并且创建子接口：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp ifcfg-ens33 ifcfg-ens33:1</span><br><span class="line">* 注：`数字1`为别名，可以任取其他数字都行</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-业务的SOA化"><a href="#2-业务的SOA化" class="headerlink" title="2.业务的SOA化"></a>2.业务的SOA化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">所谓的SOA化，就是业务的服务化。比如原来单机支撑了整个电商网站，现在对整个网站进行拆解，分离出了订单中心、用户中心、库存中心。对于订单中心，有专门的数据库存储订单信息，用户中心也有专门的数据库存储用户信息，库存中心也会有专门的数据库存储库存信息。这时候如果要同时对订单和库存进行操作，那么就会涉及到订单数据库和库存数据库，为了保证数据一致性，就需要用到分布式事务。</span><br></pre></td></tr></table></figure>
+<ol>
+<li>修改子接口配置： <code>vim ifcfg-ens33:1</code></li>
+<li>配置参考如下：<br><img src="https://climg.mukewang.com/5dc287db0882451906340344.jpg" alt="图片描述"><ul>
+<li>注：配置中的 192.168.1.150 就是咱们的vip，是提供给外网用户访问的ip地址，道理和nginx+keepalived那时讲的vip是一样的。</li>
+</ul>
+</li>
+<li>重启网络服务，或者重启linux：<br><img src="https://climg.mukewang.com/5dc287fc08c55cbc15100108.jpg" alt="图片描述"></li>
+<li>重启成功后，ip addr 查看一下，你会发现多了一个ip，也就是虚拟ip（vip）<br><img src="https://climg.mukewang.com/5dc2887b086239f113560442.jpg" alt="图片描述"></li>
+</ol>
+<h3 id="创建子接口-方式2（不推荐）"><a href="#创建子接口-方式2（不推荐）" class="headerlink" title="创建子接口 - 方式2（不推荐）"></a>创建子接口 - 方式2（不推荐）</h3><ol>
+<li><p>创建网络接口并且绑定虚拟ip：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig ens33:1 192.168.1.150/24</span><br></pre></td></tr></table></figure>
 
-<h2 id="事务的ACID性"><a href="#事务的ACID性" class="headerlink" title="事务的ACID性"></a>事务的ACID性</h2><h3 id="1-原子性"><a href="#1-原子性" class="headerlink" title="1.原子性"></a>1.原子性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在整个事务中的所有操作，要么全部成功，要么全部失败，没有中间状态。</span><br><span class="line">如果事务在执行的过程中发生错误，那么整个事务的所有操作都要回滚，整个事务就像没被执行过一样。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>配置规则如下：<br><img src="https://climg.mukewang.com/5dc2888d08852c0412950520.jpg" alt="图片描述"><br>配置成功后，查看ip会发现新增一个192.168.1.150：<br><img src="https://climg.mukewang.com/5dc288a0088cf91d11070450.jpg" alt="图片描述"></li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>通过此方式创建的虚拟ip在重启后会自动消失</li>
+</ul>
+</blockquote>
+<h3 id="安装ipvsadm"><a href="#安装ipvsadm" class="headerlink" title="安装ipvsadm"></a>安装ipvsadm</h3><p>现如今的centos都是集成了LVS，所以<code>ipvs</code>是自带的，相当于苹果手机自带ios，我们只需要安装<code>ipvsadm</code>即可（ipvsadm是管理集群的工具，通过ipvs可以管理集群，查看集群等操作），命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install ipvsadm</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-一致性"><a href="#2-一致性" class="headerlink" title="2.一致性"></a>2.一致性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">事务的执行必须保证系统的一致性，就拿转账为例，A有500元，B有300元，如果在一个事务里A成功转给B50元，那么不管并发多少，不管发生什么，只要事务执行成功了，那么最后A账户一定是450元，B账户一定是350元。</span><br></pre></td></tr></table></figure>
+<p>安装成功后，可以检测一下： <img src="https://climg.mukewang.com/5dc288c1086c8e5015100198.jpg" alt="图片描述"> 图中显示目前版本为1.2.1，此外是一个空列表，啥都没。</p>
+<ul>
+<li>注：关于虚拟ip在云上的事儿</li>
+</ul>
+<ol>
+<li>阿里云不支持虚拟IP，需要购买他的负载均衡服务</li>
+<li>腾讯云支持虚拟IP，但是需要额外购买，一台节点最大支持10个虚拟ip</li>
+</ol>
+<h2 id="搭建LVS-DR模式-为两台RS配置虚拟IP"><a href="#搭建LVS-DR模式-为两台RS配置虚拟IP" class="headerlink" title="搭建LVS-DR模式- 为两台RS配置虚拟IP"></a>搭建LVS-DR模式- 为两台RS配置虚拟IP</h2><h3 id="配置虚拟网络子接口（回环接口）"><a href="#配置虚拟网络子接口（回环接口）" class="headerlink" title="配置虚拟网络子接口（回环接口）"></a>配置虚拟网络子接口（回环接口）</h3><ol>
+<li>进入到网卡配置目录，找到lo（本地环回接口，用户构建虚拟网络子接口），拷贝一份新的随后进行修改：<img src="https://climg.mukewang.com/5dc28b540801d7ec16000905.jpg" alt="图片描述"></li>
+<li>修改内容如下：<br><img src="https://climg.mukewang.com/5dc28b660814300912740488.jpg" alt="图片描述"></li>
+<li>重启后通过ip addr 查看如下，表示ok：<br><img src="https://climg.mukewang.com/5dc28b8708f7cadb09200424.jpg" alt="图片描述"></li>
+</ol>
+<h2 id="搭建LVS-DR模式-为两台RS配置arp"><a href="#搭建LVS-DR模式-为两台RS配置arp" class="headerlink" title="搭建LVS-DR模式- 为两台RS配置arp"></a>搭建LVS-DR模式- 为两台RS配置arp</h2><h3 id="ARP响应级别与通告行为-的概念"><a href="#ARP响应级别与通告行为-的概念" class="headerlink" title="ARP响应级别与通告行为 的概念"></a>ARP响应级别与通告行为 的概念</h3><ol>
+<li>arp-ignore：ARP响应级别（处理请求）<ul>
+<li>0：只要本机配置了ip，就能响应请求</li>
+<li>1：请求的目标地址到达对应的网络接口，才会响应请求</li>
+</ul>
+</li>
+<li>arp-announce：ARP通告行为（返回响应）<ul>
+<li>0：本机上任何网络接口都向外通告，所有的网卡都能接受到通告</li>
+<li>1：尽可能避免本网卡与不匹配的目标进行通告</li>
+<li>2：只在本网卡通告</li>
+</ul>
+</li>
+</ol>
+<h3 id="配置ARP"><a href="#配置ARP" class="headerlink" title="配置ARP"></a>配置ARP</h3><ol>
+<li><p>打开sysctl.conf:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置<code>所有网卡</code>、<code>默认网卡</code>以及<code>虚拟网卡</code>的arp响应级别和通告行为，分别对应：<code>all</code>，<code>default</code>，<code>lo</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># configration for lvs</span><br><span class="line">net.ipv4.conf.all.arp_ignore = 1</span><br><span class="line">net.ipv4.conf.default.arp_ignore = 1</span><br><span class="line">net.ipv4.conf.lo.arp_ignore = 1</span><br><span class="line"></span><br><span class="line">net.ipv4.conf.all.arp_announce = 2</span><br><span class="line">net.ipv4.conf.default.arp_announce = 2</span><br><span class="line">net.ipv4.conf.lo.arp_announce = 2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>刷新配置文件：<br><img src="https://climg.mukewang.com/5dc28bf408d55df509500336.jpg" alt="图片描述"></p>
+</li>
+<li><p>增加一个网关，用于接收数据报文，当有请求到本机后，会交给lo去处理：<img src="https://climg.mukewang.com/5dc28c0a08af26b516000379.jpg" alt="图片描述"></p>
+</li>
+<li><p>防止重启失效，做如下处理，用于开机自启动：</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;route add -host 192.168.1.150 dev lo:1&quot; &gt;&gt; /etc/rc.local</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-隔离性"><a href="#3-隔离性" class="headerlink" title="3.隔离性"></a>3.隔离性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">所谓的隔离性就是说，事务与事务之间不会互相影响，一个事务的中间状态不会被其他事务感知。</span><br></pre></td></tr></table></figure>
+<p><img src="https://climg.mukewang.com/5dc28c2208e548eb13020736.jpg" alt="图片描述"></p>
+<h2 id="搭建LVS-DR模式-使用ipvsadm配置集群规则"><a href="#搭建LVS-DR模式-使用ipvsadm配置集群规则" class="headerlink" title="搭建LVS-DR模式- 使用ipvsadm配置集群规则"></a>搭建LVS-DR模式- 使用ipvsadm配置集群规则</h2><ol>
+<li><p>创建LVS节点，用户访问的集群调度者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipvsadm -A -t 192.168.1.150:80 -s rr -p 5</span><br></pre></td></tr></table></figure>
 
-<h4 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h4><h5 id="1-Read-uncommitted-：读未提交"><a href="#1-Read-uncommitted-：读未提交" class="headerlink" title="1.Read uncommitted ：读未提交"></a>1.<strong>Read uncommitted</strong> ：读未提交</h5><h6 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个事务可以读取另一个未提交事务的数据。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>-A：添加集群</li>
+<li>-t：tcp协议</li>
+<li>ip地址：设定集群的访问ip，也就是LVS的虚拟ip</li>
+<li>-s：设置负载均衡的算法，rr表示轮询</li>
+<li>-p：设置连接持久化的时间</li>
+</ul>
+</li>
+<li><p>创建2台RS真实服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ipvsadm -a -t 192.168.1.150:80 -r 192.168.1.171:80 -g</span><br><span class="line">ipvsadm -a -t 192.168.1.150:80 -r 192.168.1.172:80 -g</span><br></pre></td></tr></table></figure>
 
-<h6 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">产生脏读</span><br></pre></td></tr></table></figure>
+<ul>
+<li>-a：添加真实服务器</li>
+<li>-t：tcp协议</li>
+<li>-r：真实服务器的ip地址</li>
+<li>-g：设定DR模式</li>
+</ul>
+</li>
+<li><p>保存到规则库，否则重启失效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipvsadm -S</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查集群</p>
+<ul>
+<li><p>查看集群列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipvsadm -Ln</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看集群状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipvsadm -Ln --stats</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>其他命令：</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 重启ipvsadm，重启后需要重新配置</span><br><span class="line">service ipvsadm restart</span><br><span class="line"># 查看持久化连接</span><br><span class="line">ipvsadm -Ln --persistent-conn</span><br><span class="line"># 查看连接请求过期时间以及请求源ip和目标ip</span><br><span class="line">ipvsadm -Lnc</span><br><span class="line"></span><br><span class="line"># 设置tcp tcpfin udp 的过期时间（一般保持默认）</span><br><span class="line">ipvsadm --set 1 1 1</span><br><span class="line"># 查看过期时间</span><br><span class="line">ipvsadm -Ln --timeout</span><br></pre></td></tr></table></figure>
 
-<h6 id="事例"><a href="#事例" class="headerlink" title="事例"></a>事例</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">老板要给程序员发工资，程序员的工资是3.6万/月。但是发工资时老板不小心按错了数字，按成3.9万/月，该钱已经打到程序员的户口，但是事务还没有提交，就在这时，程序员去查看自己这个月的工资，发现比往常多了3千元，以为涨工资了非常高兴。但是老板及时发现了不对，马上回滚差点就提交了的事务，将数字改成3.6万再提交。</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>更详细的帮助文档：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ipvsadm -h</span><br><span class="line">man ipvsadm</span><br></pre></td></tr></table></figure>
 
-<h6 id="事例分析"><a href="#事例分析" class="headerlink" title="事例分析"></a>事例分析</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">实际程序员这个月的工资还是3.6万，但是程序员看到的是3.9万。他看到的是老板还没提交事务时的数据。这就是脏读。</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-Read-committed-读提交"><a href="#2-Read-committed-读提交" class="headerlink" title="2.Read committed :读提交"></a>2.<strong>Read committed</strong> :读提交</h5><h6 id="解释-1"><a href="#解释-1" class="headerlink" title="解释"></a>解释</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个事务要等另一个事务提交后才能读取数据。</span><br></pre></td></tr></table></figure>
-
-<h6 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个事务范围内两个相同的查询却返回了不同数据，这就是不可重复读。</span><br></pre></td></tr></table></figure>
-
-<h6 id="事例-1"><a href="#事例-1" class="headerlink" title="事例"></a>事例</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">程序员拿着信用卡去享受生活（卡里当然是只有3.6万），当他埋单时（程序员事务开启），收费系统事先检测到他的卡里有3.6万，就在这个时候！！程序员的妻子要把钱全部转出充当家用，并提交。当收费系统准备扣款时，再检测卡里的金额，发现已经没钱了（第二次检测金额当然要等待妻子转出金额事务提交完）。程序员就会很郁闷，明明卡里是有钱的…</span><br></pre></td></tr></table></figure>
-
-<h6 id="事例分析-1"><a href="#事例分析-1" class="headerlink" title="事例分析"></a>事例分析</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这就是读提交，若有事务对数据进行更新（UPDATE）操作时，读操作事务要等待这个更新操作事务提交后才能读取数据，可以解决脏读问题。但在这个事例中，出现了一个事务范围内两个相同的查询却返回了不同数据，这就是不可重复读。</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-Repeatable-read-重复读"><a href="#3-Repeatable-read-重复读" class="headerlink" title="3.Repeatable read  :重复读"></a>3.<strong>Repeatable read</strong>  :重复读</h5><h6 id="解释-2"><a href="#解释-2" class="headerlink" title="解释"></a>解释</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">重复读，就是在开始读取数据（事务开启）时，不再允许修改操作</span><br></pre></td></tr></table></figure>
-
-<h6 id="问题-2"><a href="#问题-2" class="headerlink" title="问题"></a>问题</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">可能还会有幻读问题</span><br></pre></td></tr></table></figure>
-
-<h6 id="事例-2"><a href="#事例-2" class="headerlink" title="事例"></a>事例</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">程序员拿着信用卡去享受生活（卡里当然是只有3.6万），当他埋单时（事务开启，不允许其他事务的UPDATE修改操作），收费系统事先检测到他的卡里有3.6万。这个时候他的妻子不能转出金额了。接下来收费系统就可以扣款了。</span><br></pre></td></tr></table></figure>
-
-<h6 id="事例分析-2"><a href="#事例分析-2" class="headerlink" title="事例分析"></a>事例分析</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">重复读可以解决不可重复读问题。写到这里，应该明白的一点就是，不可重复读对应的是修改，即UPDATE操作。但是可能还会有幻读问题。因为幻读问题对应的是插入INSERT操作，而不是UPDATE操作。</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-Serializable-序列化"><a href="#4-Serializable-序列化" class="headerlink" title="4.Serializable   :序列化"></a>4.<strong>Serializable</strong>   :序列化</h5><h6 id="解释-3"><a href="#解释-3" class="headerlink" title="解释"></a>解释</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Serializable 是最高的事务隔离级别，在该级别下，事务串行化顺序执行，可以避免脏读、不可重复读与幻读。</span><br><span class="line">但是这种事务隔离级别效率低下，比较耗数据库性能，一般不使用。</span><br></pre></td></tr></table></figure>
-
-<h6 id="问题-3"><a href="#问题-3" class="headerlink" title="问题"></a>问题</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">效率低下</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-持久性"><a href="#4-持久性" class="headerlink" title="4.持久性"></a>4.持久性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">所谓的持久性，就是说一单事务完成了，那么事务对数据所做的变更就完全保存在了数据库中，即使发生停电，系统宕机也是如此。</span><br></pre></td></tr></table></figure>
-
-<h2 id="分布式事务的应用场景"><a href="#分布式事务的应用场景" class="headerlink" title="分布式事务的应用场景"></a>分布式事务的应用场景</h2><h3 id="支付"><a href="#支付" class="headerlink" title="支付"></a>支付</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">最经典的场景就是支付了，一笔支付，是对买家账户进行扣款，同时对卖家账户进行加钱，这些操作必须在一个事务里执行，要么全部成功，要么全部失败。而对于买家账户属于买家中心，对应的是买家数据库，而卖家账户属于卖家中心，对应的是卖家数据库，对不同数据库的操作必然需要引入分布式事务。</span><br></pre></td></tr></table></figure>
-
-<h3 id="在线下单"><a href="#在线下单" class="headerlink" title="在线下单"></a>在线下单</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">买家在电商平台下单，往往会涉及到两个动作，一个是扣库存，第二个是更新订单状态，库存和订单一般属于不同的数据库，需要使用分布式事务保证数据一致性。</span><br></pre></td></tr></table></figure>
-
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="消息事务-最终一致性"><a href="#消息事务-最终一致性" class="headerlink" title="消息事务+最终一致性"></a>消息事务+最终一致性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">基于消息中间件的两阶段提交,需要业务系统结合 MQ 消息中间件实现，在实现过程中需要保 证消息的成功发送及成功消费。即需要通过业务系统控制MQ 的消息状态</span><br></pre></td></tr></table></figure>
-
-<h3 id="TCC编程模式"><a href="#TCC编程模式" class="headerlink" title="TCC编程模式"></a>TCC编程模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">所谓的TCC编程模式，也是两阶段提交的一个变种。TCC提供了一个编程框架，将整个业务逻辑分为三块：Try、Confirm和Cancel三个操作。以在线下单为例，Try阶段会去扣库存，Confirm阶段则是去更新订单状态，如果更新订单失败，则进入Cancel阶段，会去恢复库存。总之，TCC就是通过代码人为实现了两阶段提交，不同的业务场景所写的代码都不一样，复杂度也不一样，因此，这种模式并不能很好地被复用。</span><br></pre></td></tr></table></figure>
-
+</li>
+</ol>
+<h2 id="LVS的负载均衡算法"><a href="#LVS的负载均衡算法" class="headerlink" title="LVS的负载均衡算法"></a>LVS的负载均衡算法</h2><h3 id="静态算法"><a href="#静态算法" class="headerlink" title="静态算法"></a>静态算法</h3><p>静态：根据LVS本身自由的固定的算法分发用户请求。</p>
+<ol>
+<li>轮询（Round Robin 简写’rr’）：轮询算法假设所有的服务器处理请求的能力都一样的，调度器会把所有的请求平均分配给每个真实服务器。（同Nginx的轮询）</li>
+<li>加权轮询（Weight Round Robin 简写’wrr’）：安装权重比例分配用户请求。权重越高，被分配到处理的请求越多。（同Nginx的权重）</li>
+<li>源地址散列（Source Hash 简写’sh’）：同一个用户ip的请求，会由同一个RS来处理。（同Nginx的ip_hash）</li>
+<li>目标地址散列（Destination Hash 简写’dh’）：根据url的不同，请求到不同的RS。（同Nginx的url_hash）</li>
+</ol>
+<h3 id="动态算法"><a href="#动态算法" class="headerlink" title="动态算法"></a>动态算法</h3><p>动态：会根据流量的不同，或者服务器的压力不同来分配用户请求，这是动态计算的。</p>
+<ol>
+<li>最小连接数（Least Connections 简写’lc’）：把新的连接请求分配到当前连接数最小的服务器。</li>
+<li>加权最少连接数（Weight Least Connections 简写’wlc’）：服务器的处理性能用数值来代表，权重越大处理的请求越多。Real Server 有可能会存在性能上的差异，wlc动态获取不同服务器的负载状况，把请求分发到性能好并且比较空闲的服务器。</li>
+<li>最短期望延迟（Shortest Expected Delay 简写’sed’）：特殊的wlc算法。举例阐述，假设有ABC三台服务器，权重分别为1、2、3 。如果使用wlc算法的话，当一个新请求进来，它可能会分给ABC中的任意一个。使用sed算法后会进行如下运算：<ul>
+<li>A：（1+1）/1=2</li>
+<li>B：（1+2）/2=3/2</li>
+<li>C：（1+3）/3=4/3<br>最终结果，会把这个请求交给得出运算结果最小的服务器。</li>
+</ul>
+</li>
+<li>最少队列调度（Never Queue 简写’nq’）：永不使用队列。如果有Real Server的连接数等于0，则直接把这个请求分配过去，不需要在排队等待运算了（sed运算）。</li>
+</ol>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>LVS在实际使用过程中，负载均衡算法用的较多的分别为wlc或wrr，简单易用。</p>
 
       
     </div>
@@ -484,9 +609,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"># java</a>
-          
-            <a href="/tags/分布式事务/" rel="tag"># 分布式事务</a>
+            <a href="/tags/nginx-lvs/" rel="tag"># nginx,lvs</a>
           
         </div>
       
@@ -499,8 +622,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/25/POI用法详解/" rel="next" title="POI用法详解">
-                <i class="fa fa-chevron-left"></i> POI用法详解
+              <a href="/2020/09/23/Nginx-Keepalived高可用/" rel="next" title="Nginx+Keepalived高可用">
+                <i class="fa fa-chevron-left"></i> Nginx+Keepalived高可用
               </a>
             
           </div>
@@ -508,10 +631,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/25/activeMQ详解/" rel="prev" title="activeMQ详解">
-                activeMQ详解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -662,7 +781,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分布式事务"><span class="nav-number">1.</span> <span class="nav-text">分布式事务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式事务的解释："><span class="nav-number">1.1.</span> <span class="nav-text">分布式事务的解释：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题产生原因"><span class="nav-number">1.2.</span> <span class="nav-text">问题产生原因</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-数据库分表"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.数据库分表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-业务的SOA化"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.业务的SOA化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务的ACID性"><span class="nav-number">1.3.</span> <span class="nav-text">事务的ACID性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-原子性"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.原子性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-一致性"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.一致性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-隔离性"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.隔离性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事务的隔离级别"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">事务的隔离级别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Read-uncommitted-：读未提交"><span class="nav-number">1.3.3.1.1.</span> <span class="nav-text">1.Read uncommitted ：读未提交</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#解释"><span class="nav-number">1.3.3.1.1.1.</span> <span class="nav-text">解释</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问题"><span class="nav-number">1.3.3.1.1.2.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#事例"><span class="nav-number">1.3.3.1.1.3.</span> <span class="nav-text">事例</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#事例分析"><span class="nav-number">1.3.3.1.1.4.</span> <span class="nav-text">事例分析</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Read-committed-读提交"><span class="nav-number">1.3.3.1.2.</span> <span class="nav-text">2.Read committed :读提交</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#解释-1"><span class="nav-number">1.3.3.1.2.1.</span> <span class="nav-text">解释</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问题-1"><span class="nav-number">1.3.3.1.2.2.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#事例-1"><span class="nav-number">1.3.3.1.2.3.</span> <span class="nav-text">事例</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#事例分析-1"><span class="nav-number">1.3.3.1.2.4.</span> <span class="nav-text">事例分析</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Repeatable-read-重复读"><span class="nav-number">1.3.3.1.3.</span> <span class="nav-text">3.Repeatable read  :重复读</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#解释-2"><span class="nav-number">1.3.3.1.3.1.</span> <span class="nav-text">解释</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问题-2"><span class="nav-number">1.3.3.1.3.2.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#事例-2"><span class="nav-number">1.3.3.1.3.3.</span> <span class="nav-text">事例</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#事例分析-2"><span class="nav-number">1.3.3.1.3.4.</span> <span class="nav-text">事例分析</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Serializable-序列化"><span class="nav-number">1.3.3.1.4.</span> <span class="nav-text">4.Serializable   :序列化</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#解释-3"><span class="nav-number">1.3.3.1.4.1.</span> <span class="nav-text">解释</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#问题-3"><span class="nav-number">1.3.3.1.4.2.</span> <span class="nav-text">问题</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-持久性"><span class="nav-number">1.3.4.</span> <span class="nav-text">4.持久性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式事务的应用场景"><span class="nav-number">1.4.</span> <span class="nav-text">分布式事务的应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#支付"><span class="nav-number">1.4.1.</span> <span class="nav-text">支付</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在线下单"><span class="nav-number">1.4.2.</span> <span class="nav-text">在线下单</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-number">1.5.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#消息事务-最终一致性"><span class="nav-number">1.5.1.</span> <span class="nav-text">消息事务+最终一致性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCC编程模式"><span class="nav-number">1.5.2.</span> <span class="nav-text">TCC编程模式</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LVS-Nginx搭建高可用集群"><span class="nav-number">1.</span> <span class="nav-text">LVS+Nginx搭建高可用集群</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建LVS-DR模式-配置LVS节点与ipvsadm"><span class="nav-number">1.1.</span> <span class="nav-text">搭建LVS-DR模式- 配置LVS节点与ipvsadm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前期准备"><span class="nav-number">1.1.1.</span> <span class="nav-text">前期准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建子接口"><span class="nav-number">1.1.2.</span> <span class="nav-text">创建子接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建子接口-方式2（不推荐）"><span class="nav-number">1.1.3.</span> <span class="nav-text">创建子接口 - 方式2（不推荐）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装ipvsadm"><span class="nav-number">1.1.4.</span> <span class="nav-text">安装ipvsadm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建LVS-DR模式-为两台RS配置虚拟IP"><span class="nav-number">1.2.</span> <span class="nav-text">搭建LVS-DR模式- 为两台RS配置虚拟IP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置虚拟网络子接口（回环接口）"><span class="nav-number">1.2.1.</span> <span class="nav-text">配置虚拟网络子接口（回环接口）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建LVS-DR模式-为两台RS配置arp"><span class="nav-number">1.3.</span> <span class="nav-text">搭建LVS-DR模式- 为两台RS配置arp</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ARP响应级别与通告行为-的概念"><span class="nav-number">1.3.1.</span> <span class="nav-text">ARP响应级别与通告行为 的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置ARP"><span class="nav-number">1.3.2.</span> <span class="nav-text">配置ARP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建LVS-DR模式-使用ipvsadm配置集群规则"><span class="nav-number">1.4.</span> <span class="nav-text">搭建LVS-DR模式- 使用ipvsadm配置集群规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LVS的负载均衡算法"><span class="nav-number">1.5.</span> <span class="nav-text">LVS的负载均衡算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态算法"><span class="nav-number">1.5.1.</span> <span class="nav-text">静态算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态算法"><span class="nav-number">1.5.2.</span> <span class="nav-text">动态算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结："><span class="nav-number">1.5.3.</span> <span class="nav-text">总结：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
